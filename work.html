@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Yohan Visuals</title>
+  <meta name="description" content="Portfolio: bakery, Addis Ababa and Christ Mission Church photography by Yohan Visuals.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <noscript><style>.loader { display: none !important; }</style></noscript>
+
+  <div class="loader" id="loader" role="status" aria-live="polite">
+    <div class="loader-inner">
+      <div class="loader-name">YOHAN VISUALS</div>
+      <div class="loader-line"><span></span></div>
+    </div>
+  </div>
+
+  <header id="header">
+    <nav class="nav">
+      <a href="index.html" class="logo">Yohan <span>Visuals</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="contact.html" class="nav-cta">Let's Talk</a></li>
+      </ul>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" type="button">☰</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-hero" style="background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.85)), url('assets/church-arise-shine.jpg') center/cover;">
+      <div class="container reveal">
+        <div class="section-label">Portfolio</div>
+        <h1>Frames that speak.</h1>
+        <p>Bakery desserts, the streets and skyline of Addis Ababa, and life at Christ Mission Church.</p>
+      </div>
+    </section>
+
+    <section class="portfolio" style="padding-top: 60px;">
+      <div class="container">
+
+        <div class="filters reveal">
+          <button class="filter active" data-filter="all" type="button">All</button>
+          <button class="filter" data-filter="bakery" type="button">Bakery</button>
+          <button class="filter" data-filter="addis" type="button">Addis Ababa</button>
+          <button class="filter" data-filter="church" type="button">Church</button>
+        </div>
+
+        <div class="portfolio-grid">
+
+          <div class="portfolio-item reveal" data-category="bakery">
+            <img src="assets/bakery-tarts.jpg" alt="Peach-topped lime tarts on a bakery display stand">
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Bakery</div>
+              <div class="portfolio-name">Peach & Lime Tarts</div>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" data-category="bakery">
+            <img src="assets/bakery-donuts.jpg" alt="Chocolate glazed donuts with rainbow sprinkles">
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Bakery</div>
+              <div class="portfolio-name">Fresh Batch</div>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" data-category="addis">
+            <img src="assets/addis-building.jpg" alt="A modern glass and concrete high-rise in Addis Ababa, shot from street level">
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Addis Ababa</div>
+              <div class="portfolio-name">City Lines</div>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" data-category="church">
+            <img src="assets/church-bible.jpg" alt="An open Bible page highlighting a passage in the Gospel of John">
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Church</div>
+              <div class="portfolio-name">Study Notes</div>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" data-category="church">
+            <img src="assets/church-worship.jpg" alt="A woman worshipping with hands raised at a Christ Mission Church Friday service">
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Church</div>
+              <div class="portfolio-name">Friday Service</div>
+            </div>
+          </div>
+
+          <div class="portfolio-item reveal" data-category="church">
+            <img src="assets/church-arise-shine.jpg" alt="Stage lighting and the words Arise Shine at a Christ Mission Church event">
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Church</div>
+              <div class="portfolio-name">Arise & Shine</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" style="padding-top: 40px;">
+      <div class="container">
+        <div class="section-label reveal">Like what you see?</div>
+        <h2 class="contact-title reveal">Let's plan<br>your <em>shoot.</em></h2>
+        <div class="contact-buttons reveal" style="margin-top: 30px;">
+          <a href="contact.html" class="btn btn-cta">Get in Touch <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">© <span id="year"></span> Yohan Visuals. All rights reserved.</div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/yohanvisuals/" target="_blank" rel="noopener">Instagram</a>
+        <a href="work.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
