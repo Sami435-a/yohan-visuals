@@ -43,159 +43,312 @@
       <div class="container reveal">
         <div class="section-label">Portfolio</div>
         <h1>Frames that speak.</h1>
-        <p>Bakery desserts, the streets and skyline of Addis Ababa, and life at Christ Mission Church.</p>
+        <p>Pastries, the streets of Addis Ababa, Christ Mission Church, portraits, and travel — tap a collection to open it.</p>
       </div>
     </section>
 
     <section class="portfolio" style="padding-top: 60px;">
       <div class="container">
 
-        <div class="filters reveal">
-          <button class="filter active" data-filter="all" type="button">All</button>
-          <button class="filter" data-filter="bakery" type="button">Bakery</button>
-          <button class="filter" data-filter="addis" type="button">Addis Ababa</button>
-          <button class="filter" data-filter="church" type="button">Church</button>
+        <!-- COLLECTIONS VIEW — tap a collection to open it -->
+        <div id="collectionsView">
+          <div class="collections-grid">
+
+            <button class="collection-card reveal" type="button" data-collection="pastries">
+              <img src="assets/bakery-tarts.jpg" alt="Peach-topped lime tarts on a bakery display stand">
+              <div class="collection-info">
+                <div class="collection-name">Pastries</div>
+                <div class="collection-count"><span class="count-num">5</span> photos</div>
+              </div>
+            </button>
+
+            <button class="collection-card reveal" type="button" data-collection="addis">
+              <img src="assets/addis-building.jpg" alt="A modern glass and concrete high-rise in Addis Ababa">
+              <div class="collection-info">
+                <div class="collection-name">Addis Ababa</div>
+                <div class="collection-count"><span class="count-num">4</span> photos</div>
+              </div>
+            </button>
+
+            <button class="collection-card reveal" type="button" data-collection="church">
+              <img src="assets/church-arise-shine.jpg" alt="Stage lighting at a Christ Mission Church event">
+              <div class="collection-info">
+                <div class="collection-name">Church Service</div>
+                <div class="collection-count"><span class="count-num">10</span> photos</div>
+              </div>
+            </button>
+
+            <button class="collection-card reveal" type="button" data-collection="portraits">
+              <img src="assets/portrait-window-silhouette.jpg" alt="A silhouetted figure backlit by a beam of light">
+              <div class="collection-info">
+                <div class="collection-name">Portraits</div>
+                <div class="collection-count"><span class="count-num">1</span> photo</div>
+              </div>
+            </button>
+
+            <button class="collection-card reveal" type="button" data-collection="travel">
+              <img src="assets/travel-burj-khalifa-dusk.jpg" alt="The Burj Khalifa at dusk in Dubai">
+              <div class="collection-info">
+                <div class="collection-name">Travel</div>
+                <div class="collection-count"><span class="count-num">10</span> photos</div>
+              </div>
+            </button>
+
+          </div>
         </div>
 
-        <div class="portfolio-grid">
+        <!-- DETAIL VIEW — a single collection, hidden until a card is tapped -->
+        <div id="galleryDetail" hidden>
+          <button class="back-btn" id="backBtn" type="button">
+            <span class="back-arrow">←</span> Back to collections
+          </button>
+          <h2 class="detail-title" id="detailTitle"></h2>
 
-          <div class="portfolio-item reveal" data-category="bakery">
-            <img src="assets/bakery-tarts.jpg" alt="Peach-topped lime tarts on a bakery display stand">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Bakery</div>
-              <div class="portfolio-name">Peach & Lime Tarts</div>
+          <div class="portfolio-grid">
+
+            <div class="portfolio-item" data-category="pastries">
+              <img src="assets/bakery-tarts.jpg" alt="Peach-topped lime tarts on a bakery display stand">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Pastries</div>
+                <div class="portfolio-name">Peach & Lime Tarts</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="bakery">
-            <img src="assets/bakery-donuts.jpg" alt="Chocolate glazed donuts with rainbow sprinkles">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Bakery</div>
-              <div class="portfolio-name">Fresh Batch</div>
+            <div class="portfolio-item" data-category="pastries">
+              <img src="assets/bakery-donuts.jpg" alt="Chocolate glazed donuts with rainbow sprinkles">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Pastries</div>
+                <div class="portfolio-name">Fresh Batch</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="addis">
-            <img src="assets/addis-building.jpg" alt="A modern glass and concrete high-rise in Addis Ababa, shot from street level">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Addis Ababa</div>
-              <div class="portfolio-name">City Lines</div>
+            <div class="portfolio-item" data-category="pastries">
+              <img src="assets/cake-yellow-bow.jpg" alt="A yellow frosted sheet cake decorated with white ribbon bows">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Pastries</div>
+                <div class="portfolio-name">Ribbon & Bow</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-bible.jpg" alt="An open Bible page highlighting a passage in the Gospel of John">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">Study Notes</div>
+            <div class="portfolio-item" data-category="pastries">
+              <img src="assets/cake-august-21-a.jpg" alt="A cake decorated with piped citrus slices reading August 21">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Pastries</div>
+                <div class="portfolio-name">August 21</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-worship.jpg" alt="A woman worshipping with hands raised at a Christ Mission Church Friday service">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">Friday Service</div>
+            <div class="portfolio-item" data-category="pastries">
+              <img src="assets/cake-august-21-b.jpg" alt="A wide shot of the August 21 citrus cake among string lights">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Pastries</div>
+                <div class="portfolio-name">Under the Lights</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-arise-shine.jpg" alt="Stage lighting and the words Arise Shine at a Christ Mission Church event">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">Arise & Shine</div>
+            <div class="portfolio-item" data-category="addis">
+              <img src="assets/addis-building.jpg" alt="A modern glass and concrete high-rise in Addis Ababa, shot from street level">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Addis Ababa</div>
+                <div class="portfolio-name">City Lines</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="addis">
-            <img src="assets/addis-rearview-transit.jpg" alt="A car's rearview mirror reflecting a truck on an Addis Ababa road under overhead transit lines">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Addis Ababa</div>
-              <div class="portfolio-name">Rearview</div>
+            <div class="portfolio-item" data-category="addis">
+              <img src="assets/addis-rearview-transit.jpg" alt="A car's rearview mirror reflecting a truck on an Addis Ababa road under overhead transit lines">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Addis Ababa</div>
+                <div class="portfolio-name">Rearview</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="addis">
-            <img src="assets/addis-lightrail.jpg" alt="A light rail train passing a building under construction in Addis Ababa">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Addis Ababa</div>
-              <div class="portfolio-name">Light Rail</div>
+            <div class="portfolio-item" data-category="addis">
+              <img src="assets/addis-lightrail.jpg" alt="A light rail train passing a building under construction in Addis Ababa">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Addis Ababa</div>
+                <div class="portfolio-name">Light Rail</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="addis">
-            <img src="assets/addis-bridge-crossing.jpg" alt="Commuters crossing a footbridge in Addis Ababa with a train passing below">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Addis Ababa</div>
-              <div class="portfolio-name">Evening Crossing</div>
+            <div class="portfolio-item" data-category="addis">
+              <img src="assets/addis-bridge-crossing.jpg" alt="Commuters crossing a footbridge in Addis Ababa with a train passing below">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Addis Ababa</div>
+                <div class="portfolio-name">Evening Crossing</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-stage-lights.jpg" alt="Cymbals and stage lighting on a Christ Mission Church stage">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">Stage Setup</div>
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-arise-shine.jpg" alt="Stage lighting and the words Arise Shine at a Christ Mission Church event">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">Arise & Shine</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-friday-worship-1.jpg" alt="A woman worshipping with eyes closed at a Christ Mission Church Friday service">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">In Prayer</div>
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-bible.jpg" alt="An open Bible page highlighting a passage in the Gospel of John">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">Study Notes</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-friday-worship-2.jpg" alt="A man and woman raising their hands during worship at a Christ Mission Church Friday service">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">Raised in Praise</div>
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-worship.jpg" alt="A woman worshipping with hands raised at a Christ Mission Church Friday service">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">Friday Service</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-bible-study.jpg" alt="A close-up black and white photo of an open Bible on a stand">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">Word Open</div>
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-stage-lights.jpg" alt="Cymbals and stage lighting on a Christ Mission Church stage">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">Stage Setup</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-cross-macro.jpg" alt="A close-up black and white photo of a small cross on a communion tray">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">The Cross</div>
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-friday-worship-2.jpg" alt="A man and woman raising their hands during worship at a Christ Mission Church Friday service">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">Raised in Praise</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-cmtv.jpg" alt="A hand holding up a CMTV card above a Christ Mission Church congregation">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">CMTV</div>
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-bible-study.jpg" alt="A close-up black and white photo of an open Bible on a stand">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">Word Open</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-cross-sunset.jpg" alt="A silhouetted cross backlit by bright light on a communion tray">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">Cross at Dusk</div>
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-cross-macro.jpg" alt="A close-up black and white photo of a small cross on a communion tray">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">The Cross</div>
+              </div>
             </div>
-          </div>
 
-          <div class="portfolio-item reveal" data-category="church">
-            <img src="assets/church-raised-hand.jpg" alt="A worshipper raising a hand under warm stage lighting at Christ Mission Church">
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Church</div>
-              <div class="portfolio-name">Lifted Hands</div>
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-cmtv.jpg" alt="A hand holding up a CMTV card above a Christ Mission Church congregation">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">CMTV</div>
+              </div>
             </div>
-          </div>
 
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-cross-sunset.jpg" alt="A silhouetted cross backlit by bright light on a communion tray">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">Cross at Dusk</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="church">
+              <img src="assets/church-woman-singing.jpg" alt="A woman singing into a microphone under stage lighting and haze">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Church Service</div>
+                <div class="portfolio-name">Voice Raised</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="portraits">
+              <img src="assets/portrait-window-silhouette.jpg" alt="A silhouetted figure backlit by a beam of light against a high-rise window">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Portraits</div>
+                <div class="portfolio-name">At the Top</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/portrait-photo-wall.jpg" alt="A wall of framed archival photographs inside a Dubai building">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Wall of History</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/travel-dubai-sunset-aerial-1.jpg" alt="Aerial sunset view over Dubai from a high floor">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Sunset Over Dubai</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/travel-dubai-day-aerial.jpg" alt="Aerial daytime view over Downtown Dubai with the fountain lakes">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Downtown from Above</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/travel-dubai-sunset-aerial-2.jpg" alt="A second aerial sunset view over Dubai's coastline">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Golden Hour</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/travel-burj-khalifa-dusk.jpg" alt="The Burj Khalifa rising into the evening sky in Dubai">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Burj Khalifa</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/travel-dubai-hazy-skyline.jpg" alt="A hazy view over Dubai's skyscrapers">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Haze</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/travel-dubai-suburbs.jpg" alt="Aerial view over Dubai's residential suburbs">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">The Suburbs</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/travel-dubai-skyline-tower.jpg" alt="Aerial view of a Dubai skyscraper surrounded by highways">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Tower & Traffic</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/travel-dubai-hazy-sun.jpg" alt="The sun breaking through haze over Dubai's coastline">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Breaking Through</div>
+              </div>
+            </div>
+
+            <div class="portfolio-item" data-category="travel">
+              <img src="assets/cake-birthday-floral.jpg" alt="A birthday cake with piped green and pink floral icing">
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">Travel</div>
+                <div class="portfolio-name">Sweet Send-Off</div>
+              </div>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </section>
 

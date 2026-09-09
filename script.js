@@ -1,8 +1,11 @@
 /* LOADER — hides on DOMContentLoaded + a minimum show time, with a
-   hard fallback so it can never stay stuck if an asset stalls. */
-(function () {
+   hard fallback so it can never stay stuck if an asset stalls.
+   window.flashLoader() replays the same animation for in-page
+   transitions (opening/closing a gallery, etc.) so the loading
+   moment shows up everywhere, not just on first page load. */
+const flashLoader = (function () {
   const loader = document.getElementById("loader");
-  if (!loader) return;
+  if (!loader) return function () {};
 
   const MIN_SHOW = 1600; // slightly longer, deliberate loading moment
   const HARD_FALLBACK = 3500;
@@ -25,6 +28,26 @@
   }
 
   setTimeout(hideLoader, HARD_FALLBACK);
+
+  const line = loader.querySelector(".loader-line span");
+
+  // Replays the loader for a brief in-page transition. `onCovered`
+  // runs once the loader is fully opaque, so DOM swaps happen while
+  // hidden behind it; the loader then lifts after `showTime`.
+  return function flashLoader(onCovered, showTime = 900) {
+    loader.classList.remove("hide");
+    if (line) {
+      line.style.animation = "none";
+      void line.offsetWidth; // restart the line-fill animation
+      line.style.animation = "";
+    }
+    window.setTimeout(() => {
+      if (typeof onCovered === "function") onCovered();
+    }, 220);
+    window.setTimeout(() => {
+      loader.classList.add("hide");
+    }, showTime);
+  };
 })();
 
 /* HEADER scroll state */
@@ -96,23 +119,43 @@ if (prefersReducedMotion) {
   document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
 }
 
-/* PORTFOLIO FILTER (work page only) */
-const filters = document.querySelectorAll(".filter");
+/* GALLERY COLLECTIONS (work page only) — tap a cover photo to open
+   that collection; a back button returns to the collection grid. */
+const collectionCards = document.querySelectorAll(".collection-card");
+const collectionsView = document.getElementById("collectionsView");
+const galleryDetail = document.getElementById("galleryDetail");
+const detailTitle = document.getElementById("detailTitle");
+const backBtn = document.getElementById("backBtn");
 const portfolioItems = document.querySelectorAll(".portfolio-item");
 
-if (filters.length && portfolioItems.length) {
-  filters.forEach(filter => {
-    filter.addEventListener("click", () => {
-      filters.forEach(f => f.classList.remove("active"));
-      filter.classList.add("active");
+if (collectionCards.length && galleryDetail) {
+  function openCollection(key, label) {
+    portfolioItems.forEach(item => {
+      item.classList.toggle("hide", item.dataset.category !== key);
+    });
+    if (detailTitle) detailTitle.textContent = label;
+    collectionsView.hidden = true;
+    galleryDetail.hidden = false;
+    galleryDetail.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+  }
 
-      const selected = filter.dataset.filter;
-      portfolioItems.forEach(item => {
-        const category = item.dataset.category;
-        item.classList.toggle("hide", !(selected === "all" || category === selected));
-      });
+  function closeCollection() {
+    galleryDetail.hidden = true;
+    collectionsView.hidden = false;
+    collectionsView.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+  }
+
+  collectionCards.forEach(card => {
+    card.addEventListener("click", () => {
+      const key = card.dataset.collection;
+      const label = card.querySelector(".collection-name")?.textContent || "";
+      flashLoader(() => openCollection(key, label));
     });
   });
+
+  if (backBtn) {
+    backBtn.addEventListener("click", () => flashLoader(closeCollection));
+  }
 }
 
 /* CURRENT YEAR */

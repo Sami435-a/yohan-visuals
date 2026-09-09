@@ -306,6 +306,73 @@ section { padding: 120px 5vw; }
   .filter { transition: none; }
   .filter:hover, .filter.active { transform: none; }
 }
+/* COLLECTIONS — tap a cover photo to open that gallery */
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+.collection-card {
+  position: relative;
+  height: 320px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: #050403;
+  padding: 0;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+.collection-card img {
+  object-fit: cover;
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.collection-card:hover img,
+.collection-card:focus-visible img { transform: scale(1.08); }
+.collection-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.15) 55%, transparent 100%);
+}
+.collection-info {
+  position: absolute; left: 20px; right: 20px; bottom: 18px; z-index: 1;
+}
+.collection-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 4px;
+}
+.collection-count {
+  color: var(--accent);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+}
+
+/* GALLERY DETAIL — a single collection, opened from a card above */
+.back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: none; border: 1px solid var(--line); color: var(--text);
+  border-radius: 999px; padding: 10px 20px 10px 16px;
+  font-size: .75rem; text-transform: uppercase; letter-spacing: .12em;
+  cursor: pointer; margin-bottom: 28px;
+  transition: border-color .25s ease, transform .25s ease, background .25s ease;
+}
+.back-btn:hover { border-color: var(--accent); background: rgba(255,255,255,.04); transform: translateX(-3px); }
+.back-arrow { font-size: 1rem; transition: transform .25s ease; }
+.back-btn:hover .back-arrow { transform: translateX(-3px); }
+.detail-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 35px;
+}
+
 .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
 .portfolio-item {
   position: relative; height: 420px; overflow: hidden; cursor: pointer;
@@ -427,6 +494,8 @@ footer { border-top: 1px solid var(--line); padding: 35px 5vw; background: #0808
   .about-grid { grid-template-columns: 1fr; gap: 50px; }
   .about-image { height: 480px; }
   .facts { grid-template-columns: 1fr; }
+  .collections-grid { grid-template-columns: repeat(2, 1fr); }
+  .collection-card { height: 260px; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .portfolio-item { height: 360px; }
   .process-grid { grid-template-columns: 1fr; gap: 45px; }
@@ -447,6 +516,8 @@ footer { border-top: 1px solid var(--line); padding: 35px 5vw; background: #0808
   .section-top { display: block; margin-bottom: 40px; }
   .section-copy { margin-top: 25px; max-width: none; }
   .about-image { height: 320px; }
+  .collections-grid { display: block; }
+  .collection-card { height: 220px; margin-bottom: 10px; }
   .portfolio-grid { display: block; }
   .portfolio-item { height: 280px; margin-bottom: 10px; }
   .portfolio-overlay { opacity: 1; transform: none; padding: 8px 14px; max-width: 82%; }
